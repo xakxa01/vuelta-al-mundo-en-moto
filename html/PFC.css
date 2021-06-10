@@ -1,0 +1,351 @@
+* {
+  margin: 0px;
+
+}
+
+@font-face {
+  font-family: al kisah;
+  src: url(E:\html\paginaweb\PF\fuentes\al-kisah.ttf);
+}
+
+.cabeza {
+  position: fixed;
+
+}
+
+.icon {
+  /* posicion del diseño del check */
+  position: absolute;
+  top: 65%;
+  left: 65%;
+
+}
+
+.linea2 {
+  /* es la linea del medio cuando esta normal el menu */
+  position: relative;
+  width: 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+
+}
+
+/*after: 
+el seudocodigo after nos ayuda a añadir contenido adelante de la etiqueta que tenga esta caracteristica en este caso esta añadiendo 
+  una linea adelante de la del centro
+*/
+
+/*before: 
+aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del elemento de la etiqueta por ejemplo pondra 
+  una linea arriba de la que esta en el centro 
+*/
+
+.linea2:after,
+.linea2:before {
+  /*aqui se le esta añadiendo estilos a las copias de las lineas*/
+  content: ' ';
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  transition-property: top, bottom, transform;
+  transition-duration: 1s, 1s, 0.25s;
+  /*esta es la transicion que se vera en las lineas cuando se cierre el menu*/
+
+}
+
+.linea2:after {
+  /*aqui se esta posicionando las copias*/
+  top: -8px;
+}
+
+.linea2:before {
+  /*x2*/
+  bottom: -8px;
+}
+
+.menu {
+  pointer-events: none;
+  /*esto hace que cuando le des click a el icono del menu no mande a niniguna pagina de nada*/
+
+}
+
+.menu--circle {
+  /* este es el tamaño  que se le esta declarando al circulo */
+  position: absolute;
+  z-index: 13;
+  width: 243px;
+  height: 243px;
+
+}
+
+.menu__palanca {
+  /* este codigo configura el diseño de el activador del menu */
+  z-index: 11;
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background-color: #252a34;
+  border-radius: 50%;
+  cursor: pointer;
+  /* este codigo hace que el cursor se ponga como mano */
+  pointer-events: auto;
+  /* este codigo obliga a que se pueda dar click a el check */
+}
+
+.menu__listings {
+  /* este apartado hace la transicion final y diseña las listas del menu */
+  z-index: 10;
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 400px;
+  height: 400px;
+  transform: scale(0.1) rotate(180deg);
+  /* este codigo hace que cuando se cierre el menu de un giro de 150 grados */
+  transition: transform 1s;
+  /* este es el tiempo de trasicion que se toma para abrir el menu */
+}
+
+.circle {
+  /* diseño del circulo de la lista del menu */
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #eaeaea;
+  border-radius: 50%;
+  transform: rotate(395deg);
+  overflow: hidden;
+  /* hace que las listas sean circulares */
+  list-style: none;
+}
+
+.circle li {
+  /* configura la posicion de las listas */
+  position: absolute;
+  top: -0px;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  transform-origin: 0 100%;
+  /* hace que las listas se vean en el circulo */
+}
+
+.circle li .placeholder {
+  /* igual que la clase de arriba */
+  position: absolute;
+  left: -100%;
+  padding-top: 1.5em;
+  width: 200%;
+  height: 200%;
+  text-align: center;
+  transform: skewY(54deg) rotate(18deg);
+  /* esto rota la lista para que se coloque bien en el circulo */
+}
+
+.circle li .placeholder .reves {
+  /* hace que las letras giren hacia el frente */
+  transform: rotate(180deg);
+}
+
+.circle li .placeholder a {
+  /* hace que le puedas dar click las listas y le quita la decoracion */
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.circle li .placeholder .button {
+  /* otra configuracion de las listas */
+  font-size: 2.3em;
+  background-color: transparent;
+  border: none;
+  color: #11999e;
+  cursor: pointer;
+}
+
+.circle li:nth-child(1) {
+  /* este codigo lo que hace es que acomoda las listas del menu */
+  /*<*/
+  transform: rotate(0deg) skewY(-54deg);
+  background-color: transparent;
+}
+
+.circle li:nth-child(2) {
+  transform: rotate(44deg) skewY(-59deg);
+  background-color: transparent;
+}
+
+.circle li:nth-child(3) {
+  transform: rotate(72deg) skewY(-54deg);
+  background-color: transparent;
+}
+
+.circle li:nth-child(4) {
+  transform: rotate(108deg) skewY(-54deg);
+  background-color: transparent;
+}
+
+
+/* > */
+
+#menu__active {
+  /* hace que el activador siga la pantalla */
+  position: fixed;
+}
+
+#menu__active:checked~label .menu__listings {
+  /* posiciona las letras de la lista y les da una transicion */
+  transform: rotate(10deg) scale(1);
+  transition: transform 1s;
+}
+
+#menu__active:checked~label .menu__palanca {
+  /* le da color y la de una transicion a la "x" que se crea cuando activas el menu */
+  background-color: #252a34;
+}
+
+#menu__active:checked~label .linea2 {
+  /* hace que la linea del medio se oculte cuando se ven la lista del menu */
+  border-color: transparent;
+
+}
+
+#menu__active:checked~label .linea2:after {
+  /* hace que las lineas de arriba se combierta en 1 de las x */
+  top: -2px;
+  border-color: #fff;
+  transform: translateX(-50%) rotate(45deg);
+  transition-property: top, transform;
+  transition-duration: 0.25s, 1s;
+}
+
+#menu__active:checked~label .linea2:before {
+  /* esta es la otra parte de la x */
+  bottom: -2px;
+  border-color: #fff;
+  transform: translateX(-50%) rotate(-45deg);
+  transition-property: bottom, transform;
+  transition-duration: 0.25s, 1s;
+}
+
+
+#menu__active:checked~label .button:hover {
+  /* este es el hover de los botones */
+  color: #ff2e63;
+}
+
+.reves1 {
+  transform: rotate(230deg);
+}
+
+.foto {
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 2%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+}
+
+.foto img {
+  z-index: -1;
+}
+
+.hove,
+.hove2,
+.hove3,
+.hove4,
+.hove5 {
+  margin: 5px;
+  margin-top: 5%;
+}
+
+.bien {
+  background: #fbfaff;
+  padding: 50px;
+  width: 70%;
+  border: double;
+  border-width: 5px;
+  margin-bottom: 5%;
+}
+
+.icono {
+  color: #252a34;
+  font-size: 40px;
+  transform: rotate(327deg);
+  margin-bottom: -23px;
+  margin-right: 50px;
+  width: 5%;
+}
+
+.icono2 {
+  color: #252a34;
+  font-size: 80px;
+}
+
+.texto,
+.titulo {
+  font-family: pacifico;
+  color: #252a34;
+}
+
+.titulo {
+  border-bottom: solid;
+  width: 70%;
+  letter-spacing: 5px;
+  font-size: 30px;
+  margin-bottom: 5%;
+  text-shadow: 0px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+.texto {
+  font-weight: normal;
+  width: 90%;
+  font-size: 25px;
+  margin-bottom: 5%;
+}
+
+body {
+  background: url(../imagen/m.jpg);
+  background-size: contain;
+}
+
+
+.fa-motorcycle {
+  transition: 0.5s;
+}
+
+.fa-motorcycle:hover {
+  transform: scale(1.4);
+}
+
+
+@media all and (max-width: 800px) {
+
+  .hove3,
+  .hove4,
+  .hove5 {
+    display: none;
+  }
+
+  .hove,
+  .hove2 {
+    margin: 0;
+  }
+
+  .titulo {
+    font-size: 25px;
+    margin-bottom: 10%;
+  }
+
+  .texto {
+    margin-bottom: 10%;
+  }
+}
