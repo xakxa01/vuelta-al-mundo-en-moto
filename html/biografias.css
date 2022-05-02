@@ -4,16 +4,13 @@
 
 .cabeza {
   position: fixed;
-
 }
-
 
 .icon {
   /* posicion del diseño del check */
   position: absolute;
   top: 65%;
   left: 65%;
-
 }
 
 .linea2 {
@@ -22,7 +19,6 @@
   width: 20px;
   border: 2px solid white;
   border-radius: 5px;
-
 }
 
 /*after: 
@@ -38,7 +34,7 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
 .linea2:after,
 .linea2:before {
   /*aqui se le esta añadiendo estilos a las copias de las lineas*/
-  content: ' ';
+  content: " ";
   position: absolute;
   left: 50%;
   width: 100%;
@@ -48,7 +44,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   transition-property: top, bottom, transform;
   transition-duration: 1s, 1s, 0.25s;
   /*esta es la transicion que se vera en las lineas cuando se cierre el menu*/
-
 }
 
 .linea2:after {
@@ -64,7 +59,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
 .menu {
   pointer-events: none;
   /*esto hace que cuando le des click a el icono del menu no mande a niniguna pagina de nada*/
-
 }
 
 .menu--circle {
@@ -73,7 +67,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   z-index: 13;
   width: 243px;
   height: 243px;
-
 }
 
 .menu__palanca {
@@ -186,7 +179,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   background-color: transparent;
 }
 
-
 /* > */
 
 #menu__active {
@@ -194,24 +186,23 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   position: fixed;
 }
 
-#menu__active:checked~label .menu__listings {
+#menu__active:checked ~ label .menu__listings {
   /* posiciona las letras de la lista y les da una transicion */
   transform: rotate(10deg) scale(1);
   transition: transform 1s;
 }
 
-#menu__active:checked~label .menu__palanca {
+#menu__active:checked ~ label .menu__palanca {
   /* le da color y la de una transicion a la "x" que se crea cuando activas el menu */
   background-color: #252a34;
 }
 
-#menu__active:checked~label .linea2 {
+#menu__active:checked ~ label .linea2 {
   /* hace que la linea del medio se oculte cuando se ven la lista del menu */
   border-color: transparent;
-
 }
 
-#menu__active:checked~label .linea2:after {
+#menu__active:checked ~ label .linea2:after {
   /* hace que las lineas de arriba se combierta en 1 de las x */
   top: -2px;
   border-color: #fff;
@@ -220,7 +211,7 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   transition-duration: 0.25s, 1s;
 }
 
-#menu__active:checked~label .linea2:before {
+#menu__active:checked ~ label .linea2:before {
   /* esta es la otra parte de la x */
   bottom: -2px;
   border-color: #fff;
@@ -229,8 +220,7 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   transition-duration: 0.25s, 1s;
 }
 
-
-#menu__active:checked~label .button:hover {
+#menu__active:checked ~ label .button:hover {
   /* este es el hover de los botones */
   color: #ff2e63;
 }
@@ -240,11 +230,10 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
 }
 
 .fondo {
-  background: url(../imagen/m6.JPG);
+  background: url(../imagen/m6.jpg);
   height: 250px;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .barra {
@@ -254,7 +243,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   display: flex;
   align-items: center;
   font-family: sans-serif;
-
 }
 
 .barra img {
@@ -294,8 +282,6 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
   align-items: center;
   margin: auto;
   margin-top: 2%;
-
-
 }
 
 .inf {
@@ -315,16 +301,12 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
 .inf h2 {
   font-weight: normal;
   letter-spacing: 3px;
-
 }
-
 
 .flecha img {
   height: 50px;
   margin-left: 50%;
-
 }
-
 
 @font-face {
   font-family: al kisah;
@@ -332,7 +314,7 @@ aqui es lo opuesto a after el contenido que se añade aqui se pondra detras del 
 }
 
 body {
-  background: url(../imagen/m8.JPG);
+  background: url(../imagen/m8.jpg);
   background-size: cover;
 }
 
